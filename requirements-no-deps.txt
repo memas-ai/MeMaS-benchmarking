@@ -1,0 +1,15 @@
+# This is needed to resolve a bug with apache beam + datasets
+# Read https://github.com/huggingface/datasets/issues/5613 for more details
+multiprocess==0.70.11
+dill==0.3.6
+
+python-dateutil >= 2.8.0
+
+# bring in memas client/sdk dependencies manually... Need to loosen them later
+memas-sdk
+memas-client
+certifi >= 14.5.14
+frozendict ~= 2.3.4
+setuptools >= 21.0.0
+typing_extensions ~= 4.3.0
+urllib3 ~= 1.26.7
