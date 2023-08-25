@@ -1,6 +1,5 @@
 import datasets
 from .pipeline import CommonTaskNames, PipelineContext, PipelineTask
-import memas_client
 from memas_client.model.citation import Citation
 
 
@@ -26,7 +25,7 @@ class LoadWikipedia(PipelineTask):
             citation = Citation({"source_uri": row["url"], "document_name": row["title"], "source_name": "wikipedia", "description":""})
             request_obj = {"document": row["text"], "corpus_pathname": self.corpus_pathname, "citation": citation}
 
-            success = context.dp_client.remember(request_obj).body.get("success", False)
+            success = context.dp_client.memorize(request_obj).body.get("success", False)
 
             assert success
 

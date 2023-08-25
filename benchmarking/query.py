@@ -11,6 +11,6 @@ class QueryWithClueList(PipelineTask):
         context.pipeline_data = dict()
         
         for clue in self.clues:
-            resp = context.dp_client.recollect({"clue": clue, "namespace_pathname": self.namespace_pathname})
+            resp = context.dp_client.recall({"clue": clue, "namespace_pathname": self.namespace_pathname})
             
             context.pipeline_data[clue] = list(map(lambda x: x["document"], resp.body))

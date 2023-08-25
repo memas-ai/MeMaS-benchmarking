@@ -18,8 +18,8 @@ class InitCorpora(PipelineTask):
             host = f"http://{self.host}:{self.port}"
         )
 
-        context.cp_client = cp_api.CpApi(memas_client.ApiClient(configuration))
-        context.dp_client = dp_api.DpApi(memas_sdk.ApiClient(configuration))
+        context.cp_client = cp_api.CpApi(memas_sdk.ApiClient(configuration))
+        context.dp_client = dp_api.DpApi(memas_client.ApiClient(configuration))
         context.cp_client.create_user({"namespace_pathname": self.namespace_name})
         for corpus_name in self.corpus_names:
             context.cp_client.create_corpus({"corpus_pathname": f"{self.namespace_name}:{corpus_name}"})
